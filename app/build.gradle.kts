@@ -1,21 +1,32 @@
+import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.include
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+   // id("com.android.application")
+    id("com.google.gms.google-services")
+    id("com.google.devtools.ksp")
+    kotlin("kapt")
+
 }
 
 android {
     namespace = "com.x3lnthpi.library"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.x3lnthpi.library"
-        minSdk = 23
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.11"
     }
 
     buildTypes {
@@ -37,6 +48,23 @@ android {
     buildFeatures {
         compose = true
     }
+
+    packaging {
+        resources.excludes.addAll(
+            listOf(
+                "META-INF/DEPENDENCIES",
+                "META-INF/LICENSE",
+                "META-INF/LICENSE.txt",
+                "META-INF/license.txt",
+                "META-INF/NOTICE",
+                "META-INF/NOTICE.txt",
+                "META-INF/notice.txt",
+                "META-INF/ASL2.0",
+                "META-INF/*.kotlin_module",
+                "META-INF/INDEX.LIST"
+            )
+        )
+    }
 }
 
 dependencies {
@@ -49,9 +77,18 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.google.cloud.vertexai)
-    implementation(platform(libs.googleCloudBom))
-    implementation(libs.googleCloudAiplatform)
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.dagger2)
+    kapt("com.google.dagger:dagger-compiler:2.55")
+    //implementation(libs.androidx.kapt)
+    //implementation((libs.androidx.ksp))
+    implementation(platform(libs.androidx.firebase))
+    implementation(libs.androidx.firebase.analytics)
+    implementation(libs.androidx.firebase.vertexai)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -59,4 +96,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(project(":gcp"))
+    implementation("com.composables:core:1.20.0")
+    implementation("androidx.compose.ui:ui:1.8.0-alpha04")
+    //implementation("androidx.compose.material3:material3:1.4.0-alpha02")
 }

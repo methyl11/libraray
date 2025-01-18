@@ -17,7 +17,7 @@ fun main(){
     val projectId = "astrolog-439912"
     val location = "us-central1"
 
-    val prompt = "Write something on Yoga"
+    val prompt = "Write something on India"
 
 
     VertexAI(projectId, location).use { vertexAi ->
