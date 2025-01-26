@@ -16,6 +16,11 @@ roomKtx = "2.6.1"
 lifecycleViewmodelCompose = "2.7.0"
 firebaseBom = "33.7.0"
 dagger = "2.55"
+pipecat = "0.3.1"
+accompanist = "0.36.0"
+coil = "2.4.0"
+retrofit = "2.11.0"
+gson = "2.11.0"
 com-google-devtools-ksp-plugin-version = "1.7.21"
 
 
@@ -43,8 +48,16 @@ androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-
 androidx-firebase = {group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom"}
 androidx-firebase-analytics = {group = "com.google.firebase", name = "firebase-analytics-ktx"}
 androidx-firebase-vertexai = {group = "com.google.firebase", name = "firebase-vertexai"}
+androidx-firebase-remote-config = {group = "com.google.firebase", name = "firebase-config-ktx"}
 androidx-dagger2 = {group = "com.google.dagger", name = "dagger", version.ref = "dagger"}
 androidx-kapt = {group= "com.google.dagger", name = "dagger-compiler", version.ref = "dagger"}
+androidx-pipecat = {group = "ai.pipecat", name = "daily-transport", version.ref = "pipecat"}
+androidx-accompanist = {group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist"}
+androidx-coil = {group = "io.coil-kt", name = "coil-compose", version.ref = "coil"}
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+#gson = {group = "com.google.code", name = "gson:gson", version.ref = "gson"}
+gson-converter = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref= "gson"}
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

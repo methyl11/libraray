@@ -8,7 +8,12 @@ import jakarta.inject.Singleton
 @Component(modules = [MagicModule::class])
 interface MagicComponent {
 
-    @Named("Conjure") fun conjure(): Magic
-    @Named("Fire") fun fire(): Magic
+    @Named("Conjure")
+    fun conjure(): Magic
+    @Named("Fire")
+    fun fire(): Magic
+
+    // This allows injecting dependencies into classes like Activities or Fragments
+    fun inject(application: MagicApplication)
 
 }
