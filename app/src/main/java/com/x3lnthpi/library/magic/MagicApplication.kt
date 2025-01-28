@@ -6,8 +6,10 @@ import androidx.navigation.compose.rememberNavController
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.appcheck.appCheck
+import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
 import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.google.firebase.initialize
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
@@ -20,12 +22,24 @@ class MagicApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        val auth : FirebaseAuth = Firebase.auth
+
+        val currentUser = auth.currentUser
+
 
         //Firebase Appcheck
         Firebase.initialize(context = this)
+
+        //Appcheck Debug
         Firebase.appCheck.installAppCheckProviderFactory(
-            PlayIntegrityAppCheckProviderFactory.getInstance(),
+            DebugAppCheckProviderFactory.getInstance(),
         )
+
+//        Firebase.appCheck.installAppCheckProviderFactory(
+//            PlayIntegrityAppCheckProviderFactory.getInstance(),
+//        )
+
+        Firebase.appCheck.setTokenAutoRefreshEnabled(true) // Recommended for testing and production
 
 
         var authStateListener = FirebaseAuth.AuthStateListener { firebaseAuth ->

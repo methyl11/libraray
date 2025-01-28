@@ -58,6 +58,7 @@ androidx-firebase-auth = {group = "com.google.firebase", name = "firebase-auth"}
 playService = {group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServices"}
 firebase-ui-auth = {group = "com.firebaseui", name = "firebase-ui-auth", version.ref = "firebase-ui-auth"}
 firebase-appcheck = {group = "com.google.firebase", name = "firebase-appcheck-playintegrity"}
+firebase-appcheck-debug = {group = "com.google.firebase", name = "firebase-appcheck-debug"}
 androidx-dagger2 = {group = "com.google.dagger", name = "dagger", version.ref = "dagger"}
 androidx-kapt = {group= "com.google.dagger", name = "dagger-compiler", version.ref = "dagger"}
 androidx-pipecat = {group = "ai.pipecat", name = "daily-transport", version.ref = "pipecat"}

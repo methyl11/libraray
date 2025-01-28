@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -56,6 +57,7 @@ fun rememberFirebaseAuthLauncher(
                 val authResult = Firebase.auth.signInWithCredential(credential).await()
                 onAuthComplete(authResult)
                 print("Auth Complete")
+
             }
         } catch (e: ApiException) {
             onAuthError(e)
@@ -67,9 +69,22 @@ fun rememberFirebaseAuthLauncher(
 @Composable
 fun AuthScreen(navController: NavController) {
     var user by remember { mutableStateOf(Firebase.auth.currentUser) }
+
+    // If user is already logged in, navigate to HomeScreen immediately
+    LaunchedEffect(user) {
+        if (user != null) {
+            navController.navigate("HomeScreen") {
+                popUpTo("AuthScreen") { inclusive = true } // Clear AuthScreen from back stack
+            }
+        }
+    }
+
     val launcher = rememberFirebaseAuthLauncher(
         onAuthComplete = { result ->
             user = result.user
+            if (user != null) {
+                navController.navigate("HomeScreen") // Navigate to HomeScreen after successful login
+            }
         },
         onAuthError = {
             user = null
@@ -101,7 +116,7 @@ fun AuthScreen(navController: NavController) {
                 }) {
                     Text("Sign in via Google")
                 }
-                navController.navigate("HomeScreen")
+               // navController.navigate("HomeScreen")
             } else {
                 AsyncImage(
                     model = ImageRequest.Builder(context)

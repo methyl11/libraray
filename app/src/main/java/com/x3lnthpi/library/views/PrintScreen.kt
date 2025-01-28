@@ -50,22 +50,6 @@ import retrofit2.http.Path
 import java.io.ByteArrayOutputStream
 import java.util.UUID
 
-suspend fun getIdToken(): String? {
-    return try {
-        val currentUser = Firebase.auth.currentUser
-        if (currentUser != null) {
-            val task = currentUser.getIdToken(true) // Force refresh!
-            val tokenResult = task.await()
-            tokenResult.token
-        } else {
-            null
-        }
-    } catch (e: Exception) {
-        e.printStackTrace()
-        null
-    }
-}
-
 @Composable
 fun PrintScreen(navController: NavController){
 
@@ -285,6 +269,8 @@ fun startJob(endpointId: String, apiKey: String, prompt: String, onJobStarted: (
 // Check job status
 fun checkJobStatus(endpointId: String, apiKey: String, jobId: String, onImageDecoded: (Bitmap) -> Unit) {
 
+
+
     val auth = Firebase.auth // Get Firebase Auth instance
     val currentUser = auth.currentUser // Get the current user
 
@@ -301,6 +287,9 @@ fun checkJobStatus(endpointId: String, apiKey: String, jobId: String, onImageDec
                     val bitmap = decodeBase64Image(base64Image)
                     if (bitmap != null) {
                         onImageDecoded(bitmap)
+
+
+
 
                         //Firebase storage logic
                         val storageRef = Firebase.storage.reference.child("generated_images")
@@ -328,6 +317,8 @@ fun checkJobStatus(endpointId: String, apiKey: String, jobId: String, onImageDec
             } else {
                 println("Failed to check job status: ${response.code()}")
             }
+
+            // Firebase storage logic end
         }
 
         override fun onFailure(call: Call<RunPodResponse>, t: Throwable) {

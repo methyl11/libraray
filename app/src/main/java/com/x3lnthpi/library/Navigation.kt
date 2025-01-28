@@ -1,6 +1,7 @@
 package com.x3lnthpi.library
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -12,6 +13,7 @@ import com.x3lnthpi.library.views.comonents.FullImageView
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
+    //val authViewModel: AuthViewModel = viewModel() // Get ViewModel
     NavHost(navController = navController, startDestination = "AuthScreen") {
         composable("HomeScreen") { HomeScreen(navController) }
         composable("PrintScreen") { PrintScreen(navController) }

@@ -105,6 +105,7 @@ dependencies {
     implementation(libs.androidx.firebase.auth)
     implementation(libs.playService)
     implementation(libs.firebase.ui.auth)
+    implementation(libs.firebase.appcheck.debug)
     implementation(libs.firebase.appcheck)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
