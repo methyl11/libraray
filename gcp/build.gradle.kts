@@ -15,5 +15,5 @@ kotlin {
 }
 
 dependencies {
-    implementation("com.google.cloud:google-cloud-vertexai:1.14.0")
+   // implementation("com.google.cloud:google-cloud-vertexai:1.14.0")
 }

@@ -21,7 +21,10 @@ accompanist = "0.36.0"
 coil = "2.4.0"
 retrofit = "2.11.0"
 gson = "2.11.0"
+playServices = "21.3.0"
+firebase-ui-auth = "7.2.0"
 com-google-devtools-ksp-plugin-version = "1.7.21"
+foundationAndroid = "1.6.6"
 
 
 [libraries]
@@ -46,9 +49,15 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx"
 #androidx-ksp = {group = "androidx.room", name = "room-compiler", version.ref = "room"}
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 androidx-firebase = {group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom"}
-androidx-firebase-analytics = {group = "com.google.firebase", name = "firebase-analytics-ktx"}
+androidx-firebase-analytics = {group = "com.google.firebase", name = "firebase-analytics"}
 androidx-firebase-vertexai = {group = "com.google.firebase", name = "firebase-vertexai"}
-androidx-firebase-remote-config = {group = "com.google.firebase", name = "firebase-config-ktx"}
+androidx-firebase-remote-config = {group = "com.google.firebase", name = "firebase-config"}
+androidx-firebase-storage = {group = "com.google.firebase", name = "firebase-storage"}
+androidx-firebase-firestore = {group = "com.google.firebase", name = "firebase-firestore"}
+androidx-firebase-auth = {group = "com.google.firebase", name = "firebase-auth"}
+playService = {group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServices"}
+firebase-ui-auth = {group = "com.firebaseui", name = "firebase-ui-auth", version.ref = "firebase-ui-auth"}
+firebase-appcheck = {group = "com.google.firebase", name = "firebase-appcheck-playintegrity"}
 androidx-dagger2 = {group = "com.google.dagger", name = "dagger", version.ref = "dagger"}
 androidx-kapt = {group= "com.google.dagger", name = "dagger-compiler", version.ref = "dagger"}
 androidx-pipecat = {group = "ai.pipecat", name = "daily-transport", version.ref = "pipecat"}
@@ -57,6 +66,7 @@ androidx-coil = {group = "io.coil-kt", name = "coil-compose", version.ref = "coi
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 #gson = {group = "com.google.code", name = "gson:gson", version.ref = "gson"}
 gson-converter = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref= "gson"}
+androidx-foundation-android = { group = "androidx.compose.foundation", name = "foundation-android", version.ref = "foundationAndroid" }
 
 
 [plugins]

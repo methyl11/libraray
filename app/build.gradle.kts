@@ -61,7 +61,9 @@ android {
                 "META-INF/notice.txt",
                 "META-INF/ASL2.0",
                 "META-INF/*.kotlin_module",
-                "META-INF/INDEX.LIST"
+                "META-INF/INDEX.LIST",
+                "META-INF/google/protobuf/**",
+                "META-INF/services/**"
             )
         )
     }
@@ -86,6 +88,7 @@ dependencies {
     //implementation(libs.gson)
     implementation(libs.gson.converter)
     implementation(libs.androidx.coil)
+    implementation(libs.androidx.foundation.android)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.dagger2)
     kapt("com.google.dagger:dagger-compiler:2.55")
@@ -97,6 +100,12 @@ dependencies {
     implementation(libs.androidx.firebase.analytics)
     implementation(libs.androidx.firebase.vertexai)
     implementation(libs.androidx.firebase.remote.config)
+    implementation(libs.androidx.firebase.storage)
+    implementation(libs.androidx.firebase.firestore)
+    implementation(libs.androidx.firebase.auth)
+    implementation(libs.playService)
+    implementation(libs.firebase.ui.auth)
+    implementation(libs.firebase.appcheck)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

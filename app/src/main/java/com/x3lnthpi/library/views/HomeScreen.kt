@@ -1,6 +1,8 @@
 package com.x3lnthpi.library.views
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.util.Log
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -39,6 +41,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.request.DefaultRequestOptions
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import com.x3lnthpi.library.SharedViewModel
 import com.x3lnthpi.library.views.comonents.CategoryItem
 import com.x3lnthpi.library.views.comonents.SaleItems
@@ -192,3 +196,5 @@ val tabs = listOf(
     TabData("Kids"),
     TabData("Home")
 )
+
+
