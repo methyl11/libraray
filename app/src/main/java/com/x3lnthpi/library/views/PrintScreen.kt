@@ -104,8 +104,6 @@ fun onImageDecoded(imageUrl: String) {
         // Handle unauthenticated user (e.g., redirect to login)
         println("User is not authenticated. Cannot add image to Firestore.")
     }
-
-
 }
 
 
@@ -299,17 +297,25 @@ fun checkJobStatus(endpointId: String, apiKey: String, jobId: String, onImageDec
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
                         val data = baos.toByteArray()
                         val uploadTask = imageRef.putBytes(data)
+//                        uploadTask.addOnSuccessListener { snapshot ->
+//                            // Image uploaded successfully
+//                            snapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener { imageUrl ->
+//                                val imageUrl = snapshot.metadata?.reference?.downloadUrl.toString()
+//                                onImageDecoded(imageUrl) // Pass the download URL to the callback
+//                            }
+//                        }
+//                            .addOnFailureListener { exception ->
+//                                // Handle upload failure
+//                                exception.printStackTrace()
+//                            }
                         uploadTask.addOnSuccessListener { snapshot ->
-                            // Image uploaded successfully
-                            snapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener { imageUrl ->
-                                val imageUrl = snapshot.metadata?.reference?.downloadUrl.toString()
-                                onImageDecoded(imageUrl) // Pass the download URL to the callback
+                            snapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener { uri -> // Get the Uri
+                                val imageUrl = uri.toString() // Convert Uri to String
+                                onImageDecoded(imageUrl) // Now pass the String URL
                             }
+                        }.addOnFailureListener { exception ->
+                            exception.printStackTrace()
                         }
-                            .addOnFailureListener { exception ->
-                                // Handle upload failure
-                                exception.printStackTrace()
-                            }
                     }
                 } else {
                     println("Job status: $status")

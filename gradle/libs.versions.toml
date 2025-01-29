@@ -23,6 +23,7 @@ retrofit = "2.11.0"
 gson = "2.11.0"
 playServices = "21.3.0"
 firebase-ui-auth = "7.2.0"
+billing-version = "7.1.1"
 com-google-devtools-ksp-plugin-version = "1.7.21"
 foundationAndroid = "1.6.6"
 
@@ -57,6 +58,7 @@ androidx-firebase-firestore = {group = "com.google.firebase", name = "firebase-f
 androidx-firebase-auth = {group = "com.google.firebase", name = "firebase-auth"}
 playService = {group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServices"}
 firebase-ui-auth = {group = "com.firebaseui", name = "firebase-ui-auth", version.ref = "firebase-ui-auth"}
+play-billing = {group = "com.android.billingclient", name = "billing", version.ref = "billing-version"}
 firebase-appcheck = {group = "com.google.firebase", name = "firebase-appcheck-playintegrity"}
 firebase-appcheck-debug = {group = "com.google.firebase", name = "firebase-appcheck-debug"}
 androidx-dagger2 = {group = "com.google.dagger", name = "dagger", version.ref = "dagger"}
