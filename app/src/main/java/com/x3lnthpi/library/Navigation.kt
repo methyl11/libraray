@@ -14,10 +14,12 @@ import com.x3lnthpi.library.views.comonents.FullImageView
 fun AppNavigation() {
     val navController = rememberNavController()
     //val authViewModel: AuthViewModel = viewModel() // Get ViewModel
+    val savedImageViewModel : SavedImageViewModel = viewModel()
     NavHost(navController = navController, startDestination = "AuthScreen") {
         composable("HomeScreen") { HomeScreen(navController) }
         composable("PrintScreen") { PrintScreen(navController) }
         composable("AuthScreen"){ AuthScreen(navController)  }
+        composable("SavedImagesScreen"){ SavedImagesScreen(navController, savedImageViewModel) }
         }
     }
 

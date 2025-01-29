@@ -173,6 +173,10 @@ fun HomeScreen(navController: NavController) {
         Button(onClick = { navController.navigate("PrintScreen") }) {
             Text("Go to Print screen")
         }
+        //Button to navigate to SavedImages screen, temporary
+        Button(onClick = { navController.navigate("SavedImagesScreen") }) {
+            Text("Go to Saved Images")
+        }
     }
 
 
