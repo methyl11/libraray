@@ -26,6 +26,9 @@ firebase-ui-auth = "7.2.0"
 billing-version = "7.1.1"
 com-google-devtools-ksp-plugin-version = "1.7.21"
 foundationAndroid = "1.6.6"
+perf-plugin = "1.4.2"
+exoplayer = "1.5.1"
+foundationLayoutAndroid = "1.6.6"
 
 
 [libraries]
@@ -56,8 +59,15 @@ androidx-firebase-remote-config = {group = "com.google.firebase", name = "fireba
 androidx-firebase-storage = {group = "com.google.firebase", name = "firebase-storage"}
 androidx-firebase-firestore = {group = "com.google.firebase", name = "firebase-firestore"}
 androidx-firebase-auth = {group = "com.google.firebase", name = "firebase-auth"}
+androidx-exoplayer = {group = "androidx.media3", name = "media3-exoplayer", version.ref = "exoplayer"}
+androidx-exoplayer-dash = {group = "androidx.media3", name = "media3-exoplayer-dash", version.ref = "exoplayer"}
+androidx-media3-ui = {group = "androidx.media3", name = "media3-ui", version.ref = "exoplayer"}
 playService = {group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServices"}
 firebase-ui-auth = {group = "com.firebaseui", name = "firebase-ui-auth", version.ref = "firebase-ui-auth"}
+firebase-perf = {group = "com.google.firebase", name = "firebase-perf"}
+firebase-analytics = {group = "com.google.firebase", name = "firebase-analytics"}
+firebase-cloud-messaging = {group = "com.google.firebase", name = "firebase-messaging"}
+firebase-inapp-messaging = {group = "com.google.firebase", name = "firebase-inappmessaging"}
 play-billing = {group = "com.android.billingclient", name = "billing", version.ref = "billing-version"}
 firebase-appcheck = {group = "com.google.firebase", name = "firebase-appcheck-playintegrity"}
 firebase-appcheck-debug = {group = "com.google.firebase", name = "firebase-appcheck-debug"}
@@ -70,6 +80,7 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 #gson = {group = "com.google.code", name = "gson:gson", version.ref = "gson"}
 gson-converter = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref= "gson"}
 androidx-foundation-android = { group = "androidx.compose.foundation", name = "foundation-android", version.ref = "foundationAndroid" }
+androidx-foundation-layout-android = { group = "androidx.compose.foundation", name = "foundation-layout-android", version.ref = "foundationLayoutAndroid" }
 
 
 [plugins]
@@ -77,5 +88,6 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+firebase-perf ={ id = "com.google.firebase.firebase-perf", version.ref = "perf-plugin"}
 
 
