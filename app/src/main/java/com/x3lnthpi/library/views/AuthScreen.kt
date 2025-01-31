@@ -41,6 +41,10 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 
 @Composable
 fun rememberFirebaseAuthLauncher(
@@ -57,6 +61,18 @@ fun rememberFirebaseAuthLauncher(
                 val authResult = Firebase.auth.signInWithCredential(credential).await()
                 onAuthComplete(authResult)
                 print("Auth Complete")
+
+                FirebaseAuth.getInstance().currentUser?.let { user ->
+                    val result = createUserDocument(user.uid)
+                    result.onSuccess {
+                        // Handle successful user document creation
+                        print("User with UID ${user.uid} created successfully")
+                    }
+                    result.onFailure {
+                        // Handle any errors during document creation
+                        print("Failed to create user")
+                    }
+                }
 
             }
         } catch (e: ApiException) {
@@ -142,4 +158,22 @@ fun AuthScreen(navController: NavController) {
         }
     }
 
+}
+
+suspend fun createUserDocument(userId: String): Result<Unit> {
+    return try {
+        val app = FirebaseApp.getInstance()
+        val db = Firebase.firestore(app, "stable-diffusion")
+        val userDocRef = db.collection("users").document(userId)
+
+        val user = hashMapOf(
+            "uid" to userId,
+            "createdAt" to FieldValue.serverTimestamp()
+        )
+
+        userDocRef.set(user).await()
+        Result.success(Unit)
+    } catch (e: Exception) {
+        Result.failure(e)
+    }
 }

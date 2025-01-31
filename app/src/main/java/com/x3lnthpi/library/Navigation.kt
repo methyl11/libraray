@@ -20,6 +20,7 @@ fun AppNavigation() {
         composable("PrintScreen") { PrintScreen(navController) }
         composable("AuthScreen"){ AuthScreen(navController)  }
         composable("SavedImagesScreen"){ SavedImagesScreen(navController, savedImageViewModel) }
+        composable("VideoScreen"){ VideoPlayerScreen() }
         }
     }
 

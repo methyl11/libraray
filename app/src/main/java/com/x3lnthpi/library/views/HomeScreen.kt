@@ -127,6 +127,10 @@ fun HomeScreen(navController: NavController) {
             }
         }
 
+        Button(onClick = {navController.navigate("VideoScreen")}) {
+            Text("Watch Movie")
+        }
+
         Card(
             elevation = CardDefaults.cardElevation(4.dp), modifier = Modifier.padding(
                 start = 5.dp,
