@@ -127,8 +127,14 @@ fun HomeScreen(navController: NavController) {
             }
         }
 
-        Button(onClick = {navController.navigate("VideoScreen")}) {
-            Text("Watch Movie")
+        Row(){
+            Button(onClick = {navController.navigate("VideoScreen")}) {
+                Text("Watch Movie")
+            }
+
+            Button(onClick = {navController.navigate("TVScreen")}) {
+                Text("Watch TV")
+            }
         }
 
         Card(

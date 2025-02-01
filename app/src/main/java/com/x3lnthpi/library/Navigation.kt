@@ -21,6 +21,7 @@ fun AppNavigation() {
         composable("AuthScreen"){ AuthScreen(navController)  }
         composable("SavedImagesScreen"){ SavedImagesScreen(navController, savedImageViewModel) }
         composable("VideoScreen"){ VideoPlayerScreen() }
+        composable("TVScreen"){ TVScreen() }
         }
     }
 

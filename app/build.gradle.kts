@@ -118,6 +118,7 @@ dependencies {
     implementation(libs.firebase.inapp.messaging)
     implementation(libs.androidx.exoplayer)
     implementation(libs.androidx.exoplayer.dash)
+    implementation(libs.androidx.exoplayer.hls)
     implementation(libs.androidx.media3.ui)
     implementation(libs.play.billing)
     testImplementation(libs.junit)

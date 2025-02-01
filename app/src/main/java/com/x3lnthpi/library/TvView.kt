@@ -1,9 +1,5 @@
 package com.x3lnthpi.library
 
-//import android.media.browse.MediaBrowser.MediaItem
-import android.net.Uri
-import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.annotation.OptIn
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,12 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.DefaultHttpDataSource
-import androidx.media3.exoplayer.dash.DashMediaSource
 import androidx.media3.ui.AspectRatioFrameLayout
+import androidx.media3.exoplayer.hls.HlsMediaSource
 
 @OptIn(UnstableApi::class)
 @Composable
-fun VideoPlayerScreen() {
+fun TVScreen() {
     val context = LocalContext.current
     var player by remember { mutableStateOf<ExoPlayer?>(null) }
 
@@ -43,9 +39,9 @@ fun VideoPlayerScreen() {
     // Prepare and play the media
     LaunchedEffect(Unit) {
         player?.let {
-            val mediaItem = MediaItem.fromUri("https://storage.googleapis.com/movie-x-dash/Brightburn/test.mpd")
+            val mediaItem = MediaItem.fromUri("https://10591e5444d1.entrypoint.cloud.wowza.com/app-K7sxx2tK/ngrp:feddedfc_all/playlist.m3u8")
             val dataSourceFactory = DefaultHttpDataSource.Factory()
-            val mediaSource = DashMediaSource.Factory(dataSourceFactory).createMediaSource(mediaItem)
+            val mediaSource = HlsMediaSource.Factory(dataSourceFactory).createMediaSource(mediaItem)
             it.setMediaSource(mediaSource)
             it.prepare()
             it.play()
